@@ -15,7 +15,7 @@ catalog:
       type: string # How the questions are formatted and types of response expected
     - variable: PROXY_URL # A single word that is used to pair the question and answer.
       label: URL to proxy # The "question" to be answered.
-      description: The URL the service serves as proxies as soon as the user is authenticated # The description of the question to show the user how to answer the question.
+      description: The URL the service serves as proxies as soon as the user is authenticated. For rancher internal services, use <service_name>.<stack_name> # The description of the question to show the user how to answer the question.
       default: # (Optional) A default value that will be pre-populated into the UI
       required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
       type: string # How the questions are formatted and types of response expected
