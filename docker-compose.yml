@@ -1,0 +1,4 @@
+version: '2'
+services:
+  auth-proxy:
+    image: developherr/apache-ldap-file-proxy

@@ -1,0 +1,57 @@
+version: '2'
+catalog:
+  name: Apache LDAP file proxy
+  version: 0.1
+  description: Proxies a http(s) service, ensuring the user is authenticated as a specific user via ldap or as a generic user
+  minimum_rancher_version: 1.5.0# The minimum version of Rancher that supports the template, v1.0.1 and 1.0.1 are acceptable inputs
+  maximum_rancher_version: # The maximum version of Rancher that supports the template, v1.0.1 and 1.0.1 are acceptable inputs
+  upgrade_from: # The previous versions that this template can be upgraded from
+  questions: #Used to request user input for configuration options
+    - variable: AUTH_NAME # A single word that is used to pair the question and answer.
+      label: Auth name # The "question" to be answered.
+      description: Text to display when prompting for authentication # The description of the question to show the user how to answer the question.
+      default: Restricted access # (Optional) A default value that will be pre-populated into the UI
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: string # How the questions are formatted and types of response expected
+    - variable: PROXY_URL # A single word that is used to pair the question and answer.
+      label: URL to proxy # The "question" to be answered.
+      description: The URL the service serves as proxies as soon as the user is authenticated # The description of the question to show the user how to answer the question.
+      default: # (Optional) A default value that will be pre-populated into the UI
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: string # How the questions are formatted and types of response expected
+    - variable: AUTH_LDAP_HOST # A single word that is used to pair the question and answer.
+      label: LDAP host as required by Apache config for AuthLDAPURL # The "question" to be answered.
+      description: # The description of the question to show the user how to answer the question.
+      default: # (Optional) A default value that will be pre-populated into the UI
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: string # How the questions are formatted and types of response expected
+    - variable: AUTH_LDAP_BINDDN # A single word that is used to pair the question and answer.
+      label: LDAP BIND DN used for authentication # The "question" to be answered.
+      description: # The description of the question to show the user how to answer the question.
+      default: # (Optional) A default value that will be pre-populated into the UI
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: string # How the questions are formatted and types of response expected
+    - variable: AUTH_LDAP_BINDPASS # A single word that is used to pair the question and answer.
+      label: LDAP BIND password used for authentication # The "question" to be answered.
+      description: # The description of the question to show the user how to answer the question.
+      default: # (Optional) A default value that will be pre-populated into the UI
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: string # How the questions are formatted and types of response expected
+    - variable: AUTH_LDAP_ALLOWED_USERS # A single word that is used to pair the question and answer.
+      label: list of ldap user names allowed to authenticate, separated by whitespace. # The "question" to be answered.
+      description: Unsure which LDAP property to use? You can specify the LDAP property used for user lookup in the AUTH_LDAP_HOST configuration # The description of the question to show the user how to answer the question.
+      default: # (Optional) A default value that will be pre-populated into the UI
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: string # How the questions are formatted and types of response expected
+    - variable: AUTH_USER # A single word that is used to pair the question and answer.
+      label: Username of a hardcoded user that should be able to authenticate in addition to LDAP users # The "question" to be answered.
+      description: Leave empty to disable # The description of the question to show the user how to answer the question.
+      default: # (Optional) A default value that will be pre-populated into the UI
+      required: false # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: string # How the questions are formatted and types of response expected
+    - variable: AUTH_PASS # A single word that is used to pair the question and answer.
+      label: Password of a hardcoded user that should be able to authenticate in addition to LDAP users # The "question" to be answered.
+      description: Leave empty to disable # The description of the question to show the user how to answer the question.
+      default: # (Optional) A default value that will be pre-populated into the UI
+      required: false # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: password # How the questions are formatted and types of response expected
