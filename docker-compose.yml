@@ -2,3 +2,12 @@ version: '2'
 services:
   auth-proxy:
     image: developherr/apache-ldap-file-proxy
+    environment:
+      AUTH_NAME: ${AUTH_NAME}
+      PROXY_URL: ${PROXY_URL}
+      AUTH_LDAP_HOST: ${AUTH_LDAP_HOST}
+      AUTH_LDAP_BINDDN: ${AUTH_LDAP_BINDDN}
+      AUTH_LDAP_BINDPASS: ${AUTH_LDAP_BINDPASS}
+      AUTH_LDAP_ALLOWED_USERS: ${AUTH_LDAP_ALLOWED_USERS}
+      AUTH_USER: ${AUTH_USER}
+      AUTH_PASS: ${AUTH_PASS}
